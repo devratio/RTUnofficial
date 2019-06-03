@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="RTUnofficial.App.ChannelsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RTUnofficial.App"
+    xmlns:apimodels="using:RTUnofficial.ApiClient.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <GridView x:Name="gridView" ItemsSource="{x:Bind _channels}" Margin="10" IsItemClickEnabled="True" HorizontalAlignment="Stretch" Loading="GridView_Loading" ItemClick="GridView_ItemClick">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="apimodels:ChannelData">
+                    <StackPanel>
+                        <Grid>
+                            <Image Stretch="UniformToFill" Height="320" Width="320">
+                                <Image.Source>
+                                    <BitmapImage UriSource="{x:Bind Included.Images[0].Attributes.Thumb}"></BitmapImage>
+                                </Image.Source>
+                            </Image>
+                        </Grid>
+                        <StackPanel Height="50">
+                            <TextBlock TextWrapping="Wrap" Text="{x:Bind Attributes.Name}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+        </GridView>
+
+    </Grid>
+</Page>

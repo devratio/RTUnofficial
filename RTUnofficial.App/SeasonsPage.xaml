@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="RTUnofficial.App.SeasonsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RTUnofficial.App"
+    xmlns:apimodels="using:RTUnofficial.ApiClient.Models"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
+    RequestedTheme="Dark">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{x:Bind _seasons.Data}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="apimodels:SeasonData">
+                        <StackPanel Margin="10">
+                            <TextBlock Text="{x:Bind Attributes.Title}" FontSize="24pt" TextDecorations="Underline"/>
+                            <local:EpisodesViewHorizontal EpisodeSourceUrl="{x:Bind Links.Episodes}" OnEpisodeClick="EpisodesViewHorizontal_OnEpisodeClick"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

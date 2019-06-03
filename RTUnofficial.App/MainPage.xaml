@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="RTUnofficial.App.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RTUnofficial.App"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Dark"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+ 
+
+    <Grid>
+        <Grid.Resources>
+            <!--AcrylicBrush x:Key="NavigationViewDefaultPaneBackground"
+                  BackgroundSource="HostBackdrop"
+                  TintColor="Gray"
+                  TintOpacity="0.6"
+                  FallbackColor="Black"/-->
+        </Grid.Resources>
+        
+        <NavigationView PaneDisplayMode="LeftCompact" IsBackButtonVisible="Auto" Background="{StaticResource CustomAcrylicDark}" x:Name="nav_view" Loaded="Nav_view_Loaded" SelectionChanged="Nav_view_SelectionChanged" ItemInvoked="Nav_view_ItemInvoked" BackRequested="Nav_view_BackRequested">
+            <NavigationView.PaneHeader>
+                <Image Source="/Assets/RT_Horizontal_Black 2.svg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"></Image>
+            </NavigationView.PaneHeader>
+
+            <NavigationView.MenuItems>
+                <!-- maybe not this way.. -->
+                <!--
+                <NavigationViewItemHeader Content="Channels" />
+                <NavigationViewItem Content="Rooster Teeth" x:Name="rt_nav_item"/>
+                <NavigationViewItem Content="Achievement Hunter" x:Name="ah_nav_item"/>
+                <NavigationViewItem Content="Funhaus" x:Name="fh_nav_item"/>
+                <NavigationViewItem Content="Inside Gaming" x:Name="channels_nav_item"/>
+                <NavigationViewItemSeparator /> -->
+                <NavigationViewItem Content="Home" x:Name="home_nav_item" Tag="home_page" Foreground="White" IsSelected="True">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE80F;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                
+                <NavigationViewItem Content="Channels" x:Name="channels_nav_item" Tag="channels_page" Foreground="White">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE902;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem Content="Series" x:Name="series_nav_item" Tag="series_page" Foreground="White">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF5ED;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                
+                <NavigationViewItem Content="Episodes" x:Name="episodes_nav_item" Tag="episodes_page" Foreground="White">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEB9D;"/>
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
+                <NavigationViewItem Content="Live" x:Name="live_nav_item" Tag="live_page" Foreground="White">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7F4;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
+            <NavigationView.Content>
+                <Frame x:Name="content_frame" Navigated="Content_frame_Navigated"/>
+            </NavigationView.Content>
+
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox x:Name="search_box"></AutoSuggestBox>
+            </NavigationView.AutoSuggestBox>
+        </NavigationView>
+    </Grid>
+</Page>
