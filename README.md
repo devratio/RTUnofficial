@@ -1,6 +1,8 @@
 # RTUnofficial
 An unofficial application for viewing RoosterTeeth content on Windows &amp; Xbox
 
+Development suspended due to RT not granting permission for further development.
+
 Menu
 ![menu](https://github.com/devratio/RTUnofficial/blob/master/screenshots/Screenshot%202019-06-03%20at%2019.06.33.png)
 
